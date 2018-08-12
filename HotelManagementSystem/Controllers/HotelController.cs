@@ -21,7 +21,8 @@ namespace HotelManagementSystem.Controllers
                     return Content(HttpStatusCode.NotFound, "Currently we have no hotel details");
 
                 return Ok(_hotels);
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 return Content(HttpStatusCode.InternalServerError, "Internal Server Error");
             }
@@ -53,7 +54,11 @@ namespace HotelManagementSystem.Controllers
                 if (!ModelState.IsValid)
                     return Content(HttpStatusCode.BadRequest, "Model state is invalid");
 
-                hotel.Id = ++_count;
+                var hotelPresent = (_hotels.Find(hotelList => hotelList.Id == hotel.Id) != null) ? true : false;
+                if (hotelPresent)
+                    return Content(HttpStatusCode.BadRequest, "DuplicateEntry");
+                else
+                    _hotels.Add(hotel);
                 _hotels.Add(hotel);
                 return Ok(_hotels);
             }

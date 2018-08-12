@@ -92,6 +92,72 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User gets the details of the hotel from database by providing valid inputs")]
+        [NUnit.Framework.CategoryAttribute("GetHotelById")]
+        [NUnit.Framework.TestCaseAttribute("9", "hotel9", null)]
+        public virtual void UserGetsTheDetailsOfTheHotelFromDatabaseByProvidingValidInputs(string id, string name, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "GetHotelById"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User gets the details of the hotel from database by providing valid inputs", @__tags);
+#line 19
+this.ScenarioSetup(scenarioInfo);
+#line 20
+ testRunner.Given(string.Format("User provided valid Id \'{0}\'  and \'{1}\'for hotel", id, name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 21
+ testRunner.And("Use has added required details for hotel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 22
+ testRunner.And("User has called AddHotel api", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 23
+ testRunner.And(string.Format("user has provided a valid hotel id \'{0}\' to be retrieved", id), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 24
+ testRunner.When("user calls GetHotelById api", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 25
+ testRunner.Then(string.Format("Details of Hotel with id \'{0}\'  should be present in the response", id), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User gets the details of all the hotels.")]
+        [NUnit.Framework.CategoryAttribute("GetAllHotels")]
+        public virtual void UserGetsTheDetailsOfAllTheHotels_()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User gets the details of all the hotels.", new string[] {
+                        "GetAllHotels"});
+#line 31
+this.ScenarioSetup(scenarioInfo);
+#line 32
+    testRunner.Given("User provided valid Id \'6\'  and \'hotel6\'for hotel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 33
+ testRunner.And("Use has added required details for hotel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 34
+ testRunner.And("User has called AddHotel api", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 35
+ testRunner.And("User provided valid Id \'7\'  and \'hotel7\'for hotel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 36
+ testRunner.And("Use has added required details for hotel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 37
+ testRunner.And("User has called AddHotel api", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 38
+ testRunner.And("User provided valid Id \'8\'  and \'hotel8\'for hotel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 39
+ testRunner.And("Use has added required details for hotel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 40
+ testRunner.And("User has called AddHotel api", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 41
+ testRunner.When("User calls GetAllHotels api", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 42
+ testRunner.Then("Hotel with names \'hotel6\',\'hotel7\',\'hotel8\' should be present in the response", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
